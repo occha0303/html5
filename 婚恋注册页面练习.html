@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册页面</title>
+</head>
+
+<body>
+    <h4>原神真的太好玩辣!</h4>
+    <table width="600">
+        <!-- 第一行 -->
+        <tr>
+            <td>性别:<br>
+            </td>
+            <td>
+                <input type="radio" name="sex" id="nan" checked="checked">
+                <!-- 默认选中男 -->
+                <label for="nan"> <img src="images/man.jpg"> 男</label>
+                <input type="radio" name="sex" id="nv"><label for="nv"> <img src="images/women.jpg"> 女</label>
+            </td>
+            <!-- tdtd分成左右两列 -->
+            <!-- 1.label不要拼错2.input 跟一连串还能id=,label双标签框起来要的东西,label for和input id一一对应 -->
+
+        </tr>
+        <!-- 第二行 -->
+        <tr>
+            <td>生日</td>
+            <td>
+                <select>
+                    <!-- select下面第一个值为默认 -->
+                    <option>--请选择年份--</option>
+                    <option>2001</option>
+                    <option>2002</option>
+                    <option>2003</option>
+                    <option>2004</option>
+                </select>
+                <select>
+                    <option>--请选择月份--</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                <select>
+                    <option>--请选择日--</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 第三行 -->
+        <tr>
+            <td>所在地区</td>
+            <td><input type="text" value="所在地区/省份"></td>
+        </tr>
+        <!-- 第四行 -->
+        <tr>
+            <td>婚姻状况</td>
+            <td>
+                <input type="radio" name="marry" checked="checked" id="wh"><label for="wh"> 未婚</label><input
+                    type="radio" name="marry" id="yh"><label for="yh">已婚</label> <input type="radio" name="marry"
+                    id="lh"><label for="lh">离婚</label>
+            </td>
+        </tr>
+        <!-- 第五行 -->
+        <tr>
+            <td>学历</td>
+            <td><input type="text" value="博士后"></td>
+            <!-- value是text文本框里显示的内容 -->
+        </tr>
+        <!-- 第六行 -->
+        <tr>
+            <td>喜欢的类型:</td>
+            <td>
+                <!-- 复选框/多选框 -->
+                <input type="checkbox" name="love" id="c"> <label for="c">茶茶1</label>
+                <input type="checkbox" name="love" id="cc"> <label for="cc">茶茶2</label>
+                <input type="checkbox" name="love" id="ccc" checked="checked"> <label for="ccc">都喜欢</label>
+                <!-- 默认checked在input里写,不是label!)(想想也不是,label是勾选范围嘛) -->
+            </td>
+        </tr>
+        <!-- 第七行 -->
+        <tr>
+            <td>自我介绍</td>
+            <td><textarea cols="20" rows="3">
+ 自我介绍
+            </textarea></td>
+            <!-- textarea是双标签,里面的内容是文本框内的内容 -->
+        </tr>
+        <!-- 第八行,左边的单元格是空的,右列是注册按钮 -->
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="免费注册">
+                <!-- 这里的value是修改按钮里的文字 -->
+            </td>
+            <!-- 第九行 -->
+        <tr>
+            <td></td>
+            <td>
+                <input type="checkbox" checked="checked"> 我同意注册条款
+                <!-- checkbox复选框 -->
+            </td>
+        </tr>
+        <!-- 第十行 -->
+        <tr>
+            <td></td>
+            <td>
+                <a href="#">我是会员 立即登录</a>
+                <!-- 空连接 -->
+        <tr>
+            <td></td>
+            <td>
+                <h5>我承诺</h5>
+                <ul>
+                    <li>年满18,单身</li>
+                    <li>我玩原神</li>
+                    <li>原神,启动!</li>
+                </ul>
+                <!-- 无须列表 -->
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and File Upload page</title>
+    <style>
+        /*我发现我不会给css快捷键注释*/
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            /* 背景颜色为浅灰色 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 内容居中对齐 */
+            justify-content: center;
+            /* 垂直居中 */
+            height: 100vh;
+            /* 页面高度为视窗高度 */
+            margin: 0;
+        }
+
+        table {
+            background-color: white;
+            /* 表格背景颜色为白色 */
+            padding: 20px;
+            /* 表格内边距 */
+            border-radius: 8px;
+            /* 圆角边框 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* 添加阴影效果 */
+        }
+
+        td {
+            padding: 10px;
+            /* 表格单元格内边距 */
+        }
+
+        /* 输入框、按钮等的样式 */
+        input[type="text"],
+        input[type="password"],
+        input[type="file"],
+        input[type="button"],
+        input[type="submit"] {
+            padding: 10px;
+            /* 输入框和按钮的内边距 */
+            margin: 5px 0;
+            /* 上下外边距 */
+            box-sizing: border-box;
+            /* 确保内外边距不会影响元素总宽度 */
+            width: 100%;
+            /* 宽度占满父容器 */
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+            /* 复选框右边的外边距 */
+        }
+    </style>
+</head>
+
+<body>
+    <h4>Login Page</h4> <!-- 页面标题 -->
+
+    <!-- 登录表单区域 -->
+    <table width="600" id="loginTable">
+        <!-- 第1行：用户名输入框 -->
+        <tr>
+            <td>Username (Email):</td>
+            <td><input type="text" id="username" placeholder="Please enter your username" maxlength="100" required></td>
+            <!-- `placeholder` 提示用户输入内容，`maxlength` 限制最大输入字符数，`required` 确保此项必填 -->
+        </tr>
+        <!-- 第2行：密码输入框 -->
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" id="password" placeholder="Enter your password" required></td>
+            <!-- 密码框的`type="password"`确保用户输入的内容不可见 -->
+        </tr>
+        <!-- 第3行：登录按钮 -->
+        <tr>
+            <td></td>
+            <td><input type="button" value="Login" onclick="login()" /></td>
+            <!-- `onclick="login()"` 绑定点击事件，用户点击按钮时执行 `login()` 函数 -->
+        </tr>
+    </table>
+
+    <!-- 文件上传表单区域（初始状态下隐藏） -->
+    <table width="600" id="uploadTable" style="display:none;">
+        <!-- 第1行：驾驶执照文件上传 -->
+        <tr>
+            <td>Update Driver's License:</td>
+            <td>
+                <input type="file" id="driversLicenseFile" name="driversLicenseFile" style="display:none"
+                    onchange="updateFileName('driversLicenseFile', 'driversLicenseFileAgent')" />
+                <!-- 文件输入框（隐藏状态），用户选择文件时调用 `updateFileName` 函数更新显示 -->
+                <input type="text" id="driversLicenseFileAgent" placeholder="No file selected" disabled />
+                <!-- 显示用户选择的文件名，`disabled` 禁止用户手动输入 -->
+                <input type="button" onclick="document.getElementById('driversLicenseFile').click()"
+                    value="Browse..." />
+                <!-- 点击按钮时触发文件选择框 -->
+                <!-- 这一串是csdn上抄来的,因为我不会把中文系统下的上传变成英语 如果环境是english 用这个 : upload:<input type="file"> -->
+
+            </td>
+        </tr>
+        <!-- 第2行：出生证明文件上传 -->
+        <tr>
+            <td>Update Birth Certificate:</td>
+            <td>
+                <input type="file" id="birthCertificateFile" name="birthCertificateFile" style="display:none"
+                    onchange="updateFileName('birthCertificateFile', 'birthCertificateFileAgent')" />
+                <input type="text" id="birthCertificateFileAgent" placeholder="No file selected" disabled />
+                <input type="button" onclick="document.getElementById('birthCertificateFile').click()"
+                    value="Browse..." />
+            </td>
+        </tr>
+        <!-- 第3行：上传按钮 -->
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Upload"></td>
+        </tr>
+        <!-- 第4行：复选框,同意上传文件 -->
+        <tr>
+            <td></td>
+            <td><input type="checkbox" checked="checked"> I agree to upload the file</td>
+        </tr>
+    </table>
+
+    <script type="text/javascript">
+        // 用JavaScript写登录函数
+        //这部分还不是很会
+        function login() {
+            // 获取用户输入的用户名和密码
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // 模拟登录验证（实际开发中会与后端服务器进行验证）
+            if (username === 'user@qut.com' && password === '123') {
+                alert('Login successful!'); // 登录成功提示
+                document.getElementById('loginTable').style.display = 'none'; // 隐藏登录表单
+                document.getElementById('uploadTable').style.display = 'block'; // 显示上传表单
+            } else {
+                alert('Invalid username or password'); // 登录失败提示
+            }
+        }
+
+        // 更新文件名显示的函数
+        function updateFileName(fileInputId, fileAgentId) {
+            const fileInput = document.getElementById(fileInputId); // 获取文件输入框元素
+            const fileAgent = document.getElementById(fileAgentId); // 获取显示文件名的文本框元素
+            fileAgent.value = fileInput.value.split('\\').pop(); // 仅显示文件名，而不是完整路径
+        }
+    </script>
+</body>
+
+</html>

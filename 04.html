@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>标题标签</h1>
+    我是<strong>加粗的</strong>文件
+    我是<em>倾斜</em>的文字
+    <p>
+        小猫爱吃鱼
+    </p>
+    小猫不爱吃猫粮<br />猫粮不好吃
+    1.<a href="#cc">茶茶的小屋</a><br>
+    <h4>图片标签的使用</h4>
+    <img src="菜单.jpg" title="菜单" width="500" height="500" border="13" /><br />
+    <a href="http://www.qq.com" target="_blank">腾讯qq</a>
+    <a href="index.html" target="_blank">cc</a>
+    <h4>网页元素的链接</h4>
+    <a herf="http://www.baidu.com"><img src="菜单.jpg" width="500" height="500" border="13" /> </a>
+    <h3 id="cc">茶茶的小屋</h3>
+
+    <!-- 属性写在table里面 ctrlks-->
+    <!-- tr是行,必须是在table里面 td是单元格 里面写单元格内的文字 -->
+    <table align="center">
+        <tr><!-- 第一行-->
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <tr />
+        <tr><!-- 第二行-->
+            <td>茶茶</td>
+            <td>女</td>
+            <td>18</td>
+        </tr>
+
+    </table>
+
+    <h4>粉丝排行榜</h4>
+    <ol>
+        <li>刘德华 1000</li>
+        <li>刘荣耀 100</li>
+        <li>刘芳芳 10</li>
+    </ol>
+    <!-- 有序列表,自动加序号,ol里只能放li,li相当于容器,可以放东西,自定义列表:dl/一个dt/多个dd-- 自定义列表就是一行大标题带一些小的>
+    <!-- ul 无序标签//ol有序标签//dl自定义列表 -->
+    <!-- 表单=表单域+表单元素+提示信息/表单域就是form 提示信息就是文字 表单控件/元素=可选框/按钮-->
+
+    <!-- input输入//是一个单标签//password看不见的密码框-->
+    <form action="demo.php" method="POST" name="name1">
+    </form>
+
+    <form>
+        用户名:<input type="text" name="username" value="请输入用户名" maxlength="6"> <br />
+        密码:<input type="password" name="password"> <br>
+        <!-- radio单选按钮-->
+        <!-- 性别男女的name要相同,比如都是sex,才能多选一 -->
+        <!-- checked默认选中 checked="checked"//maxlength -->
+        性别:男 <input type="radio" name="sex"> 女<input type="radio" name="sex"><br>
+        爱好:吃饭<input type="checkbox" name="hobby"> 睡觉<input type="checkbox" name="hobby"> 打豆豆<input type=" checkbox"
+            name="hobby"><br>
+        <!-- ctrl+/快捷键 checkbox复选框 多选按钮 -->
+        <input type="submit" value="免费注册">
+        上传头像:<input type="file">
+
+        <!-- form是指定一个表单域,理论上可以不写 -->
+        <label for="text">用户名:</label> <input type="text" id="text">
+        <!-- for里面的值要和input id=的一模一样,
+         label标签就是让鼠标光标区域更大一些 -->
+        <input type="radio" id="nan" name="sex"><label for="nan">男</label>
+        <!-- label for xxx  +  input 后面 id= 要一致! -->
+        <!-- 单选按钮/复选框都要加name=,目的:送到后台让计算机知道你选了啥 -->
+        <input type="radio" id="nv" name="sex"><label for="nv">女</label>
+    </form>
+
+    籍贯:
+    <!-- select下拉列表,在option里定义selected="selected"默认当前选项 -->
+    <select>
+        <option>山东</option>
+        <option selected>河南</option>
+        <option>黑龙江</option>
+        <option>河北</option>
+    </select>
+    /
+    <!-- input 遇到回车会自动截断,所以要用textarea文本框来写较多内容 -->
+
+    <form>
+        今日反馈
+        <textarea cols="50" rows="5">
+            <!-- 实际开发不会用,都是css指定文本域 -->
+请填写你的留言
+        </textarea>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and File Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h4>log in page</h4>
+    <table width="600">
+
+        <!-- 第1行 -->
+        <tr>
+            <td>user name(Email):</td>
+            <td><input type="text" name="username" value="Please enter your username" maxlength="6"> <br />
+            </td>
+        </tr>
+        <!-- 第2行 -->
+        <tr>
+            <td>password:</td>
+            <td><input type="password" name="password"> <br></td>
+        </tr>
+        <!-- 第3行 -->
+        <tr>
+            <td>update driversLicense:</td>
+            <td><input type="file" id="inputFile" name="inputFile" style="display:none"
+                    onchange="changeAgentContent()" />
+                <input type="text" value="" disabled id="inputFileAgent" />
+                <input type="button" onclick="document.getElementById('inputFile').click()" value="Browse..." />
+                <script type="text/javascript">
+                    function changeAgentContent() {
+                        document.getElementById("inputFileAgent").value = document.getElementById("inputFile").value;
+                    }
+                </script>
+            </td>
+        </tr>
+        <!-- 第4行 -->
+        <tr>
+            <td>update birthCertificate:</td>
+            <td>
+                <input type="file" id="inputFile" name="inputFile" style="display:none"
+                    onchange="changeAgentContent()" />
+                <input type="text" value="" disabled id="inputFileAgent" />
+                <input type="button" onclick="document.getElementById('inputFile').click()" value="Browse..." />
+                <script type="text/javascript">
+                    function changeAgentContent() {
+                        document.getElementById("inputFileAgent").value = document.getElementById("inputFile").value;
+                    }
+                </script>
+            </td>
+        </tr>
+        <!-- 第5行,左边的单元格是空的,右列是注册按钮 -->
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="upload">
+
+            </td>
+            <!-- 第6行 -->
+        <tr>
+            <td></td>
+            <td>
+                <input type="checkbox" checked="checked"> I agree to upload the file
+                <!-- checkbox复选框 -->
+            </td>
+        </tr>
+</body>
+
+</html>
