@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻快报模块</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 248px;
+            height: 163px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            /*盒子水平居中*/
+        }
+
+        .box h3 {
+            height: 32px;
+            border-bottom: 1px dotted #ccc;
+            font-size: 14px;
+            font-weight: 400;
+            /*取消加粗*/
+            line-height: 32px;
+            /*垂直居中*/
+            padding-left: 15px;
+        }
+
+        .box ul li a {
+            font-size: 12px;
+            color: #666;
+            text-decoration: none;
+
+        }
+
+        .box ul li a:hover {
+            /*冒号和前面的a没有空格*/
+            text-decoration: underline;
+            /*鼠标经过空链接有下划线*/
+        }
+
+        li {
+            list-style-type: none;
+            /*取消无序列表前面的点序号,只是li的属性不是a的,把页面中所有的li都去掉*/
+        }
+
+        .box ul li {
+            height: 23px;
+            line-height: 23px;
+            padding-left: 20px;
+            /*垂直居中*/
+        }
+
+        .box ul {
+            margin-top: 7px;
+            /*小li的上边距,不能用小li的属性做了(不然每个li都有上边距)*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h3>品优购快报</h3>
+        <ul>
+            <li><a href="#">【特惠】爆款耳机5折秒!</a></li>
+            <li><a href="#">【特惠】母亲节，健康好礼低至5折</a></li>
+            <li><a href="#">【特惠】爆款耳机5折秒!</a></li>
+            <li><a href="#">【特惠】9.9元洗100张照片!</a></li>
+            <li><a href="#">【特惠】长虹智能空调立省1000</a></li>
+        </ul>
+    </div>
+
+
+
+
+</body>
+
+</html>
