@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行内块缝隙</title>
+    <style>
+        div {
+            float: left;
+            width: 150px;
+            height: 200px;
+            background-color: pink;
+            display: inline-block;
+            /*此时一列变成一行,但有缝隙*/
+            /*浮动可以改变元素标签默认的排列方式,如左上角右上角都有一个盒子*/
+
+            /*典型:可以让多个块级元素一行内排列显示*/
+            /*多个块级元素纵向排列找标准流,多个块级元素横向排列找浮动*/
+        }
+    </style>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</body>
+
+</html>
