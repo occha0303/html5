@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JR ass 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h4>Table</h4>
+    <form action="/submit" method="post" onsubmit="return validatePassword()">
+        <table width="600">
+            <!-- 第一行 -->
+            <tr>
+                <td>First Name:<br>
+                </td>
+                <td>
+                    <label for="fname"></label>
+                    <input type="text" id="fname" name="fname" placeholder="first name" required>
+                </td>
+            </tr>
+            <!-- 第二行 -->
+            <tr>
+                <td>Last Name:<br>
+                </td>
+                <td>
+                    <label for="lname"></label>
+                    <input type="text" id="lname" name="lname" placeholder="last name" required>
+                </td>
+            </tr>
+            <!-- 第三行 -->
+            <tr>
+                <td>Email address:<br>
+                </td>
+                <td>
+                    <label for="email"></label>
+                    <input type="email" id="email" name="email" placeholder="example@example.com"
+                        [a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$ required>
+                    <!-- 正则表达式 -->
+                </td>
+            </tr>
+            <!-- 第四行 -->
+            <tr>
+                <td>Password:<br>
+                </td>
+                <td>
+                    <input type="password" id="password" name="password" required minlength="8"
+                        pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" placeholder="Enter your password">
+                    <!-- 密码必须至少包含一个字母和一个数字，且长度为 8 个字符以上。 -->
+                </td>
+            </tr>
+            <!-- 第五行 -->
+            <tr>
+                <td>Confirm Password:<br>
+                </td>
+                <td>
+                    <input type="password" id="confirm_password" name="confirm_password" required minlength="8"
+                        placeholder="Re-enter your password">
+                </td>
+            </tr>
+            <!-- 错误提示信息 -->
+            <tr>
+                <td colspan="2">
+                    <span id="message" style="color:red"></span>
+                </td>
+            </tr>
+
+
+    </form>
+
+    <script>
+        function validatePassword() {
+            // 获取密码和确认密码字段的值
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm_password").value;
+            const message = document.getElementById("message");
+
+            // 检查两次输入的密码是否一致
+            if (password !== confirmPassword) {
+                message.textContent = "Passwords do not match"; // 显示错误信息
+                return false; // 阻止表单提交
+            }
+            message.textContent = ""; // 清除错误信息
+            return true; // 允许表单提交
+        }
+    </script>
+    <!-- 第六行 -->
+    <tr>
+        <td>Date of birth:<br>
+        </td>
+        <td>
+            <input type="date" id="date" name="date" required>
+        </td>
+    </tr>
+
+    <!-- 第七行 -->
+    <tr>
+        <td>Gender:<br>
+        </td>
+        <td>
+            <input type="radio" name="sex" id="nan" checked="checked">
+            <!-- 默认选中男 -->
+            <label for="nan"> Male</label>
+            <input type="radio" name="sex" id="nv"><label for="nv"> Female</label>
+            <input type="radio" name="sex" id="other"><label for="other">Other</label>
+        </td>
+        <!-- 第八行 -->
+    <tr>
+        <td>About me</td>
+        <td><textarea cols="30" rows="5">
+ About me
+            </textarea></td>
+        <!-- textarea是双标签,里面的内容是文本框内的内容 -->
+        <!-- 用css调节 -->
+    </tr>
+    <!-- 第九行 -->
+    <tr>
+        <td>Choose Your Profession</td>
+        <td>
+            <select>
+                <!-- select下面第一个值为默认 -->
+                <option>--Profession--</option>
+                <option>Web Development</option>
+                <option>Data Analytics</option>
+                <option>UI/UX Design</option>
+
+            </select>
+            <!-- 第十行,左边的单元格是空的,右列是注册按钮 -->
+    <tr>
+        <td></td>
+        <td>
+            <button type="submit">Submit</button>
+
+        </td>
+        </table>
+</body>
+
+</html>
