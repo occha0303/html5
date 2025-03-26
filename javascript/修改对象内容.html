@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">我是文字内容</div>
+    <script>
+        //const obj = {
+        //name: 'pink 老师'
+        // }
+        //console.log(obj.name)
+        //1.获取元素
+        const box = document.querySelector('.box')
+        //2.修改文字内容 对象.innerText 属性
+        console.log(box.innerText)//获取文字内容
+        box.innerText = '<strong>我是一个盒子</strong>'//纯显示文本不识别标签
+
+        //3.inn二HTML 解析标签
+        console.log(box.innerHTML)
+        //box.innerHTML='我要更换'
+        box.innerHTML = '<strong>我要更换</strong>'
+    </script>
+</body>
+
+</html>

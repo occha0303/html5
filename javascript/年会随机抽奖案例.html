@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 800px;
+            height: 420px;
+            padding: 100px 250px;
+            block-size: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <strong>传智教育年会抽奖</strong>
+        <h1>一等奖:<span id="one">???</span></h1>
+        <h3>二等奖:<span id="two">???</span></h3>
+        <h5>三等奖:<span id="three">???</span></h5>
+
+    </div>
+    <script>
+        const personArr = ['小一', '小2', '小3', '小4', '小5']
+        //先做1等奖
+        const random = Math.floor(Math.random() * personArr.length)
+        // console.log(personArr[random]);
+        //获取one元素
+        const one = document.querySelector('#one')
+        //把名字给one
+        one.innerHTML = personArr[random]
+        //删除名字
+        personArr.splice(random, 1)
+        //console.log(personArr)
+
+        //先做2等奖
+        const random2 = Math.floor(Math.random() * personArr.length)
+        // console.log(personArr[random]);
+        //获取two元素
+        const two = document.querySelector('#two')
+        //把名字给one
+        two.innerHTML = personArr[random2]
+        //删除名字
+        personArr.splice(random2, 1)
+
+
+        //先做3等奖
+        const random3 = Math.floor(Math.random() * personArr.length)
+        // console.log(personArr[random]);
+        //获取three元素
+        const three = document.querySelector('#three')
+        //把名字给three
+        three.innerHTML = personArr[random3]
+        //删除名字
+        personArr.splice(random32, 1)
+    </script>
+</body>
+
+</html>
