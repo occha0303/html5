@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>学生就业统计表</h1>
+    <form class="info" autocomplete="off">
+        姓名:<input type="text" class="uname" name="uname" />
+        年龄:<input type="text" class="age" name="age" />
+        性别:
+        <select name="gender" class="gender">
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
+        薪资:<input type="text" class="salary" name="salary" />
+        就业城市:<select name="city" class=city>
+            <option value="北京">北京</option>
+            <option value="上海">上海</option>
+            <option value="广州">广州</option>
+            <option value="深圳">深圳</option>
+        </select>
+        <button class="add">添加</button>
+    </form>
+    <div class="title">共有数据<span>0</span>条</div>
+    <h1>就业榜</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>薪资</th>
+                <th>就业城市</th>
+                <th>录取时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td>1</td>
+                <td>茶茶</td>
+                <td>19</td>
+                <td>女</td>
+                <td>3000</td>
+                <td>上海</td>
+                <td>2009/9/9 09:09:09</td>
+                <td>
+                    <a href="javascript:">删除</a>
+                </td>
+            </tr> -->
+
+        </tbody>
+    </table>
+
+    <script>
+        //参考数据
+        const initData = [
+            {
+                stuId: 1,
+                uname: '迪丽热巴',
+                age: 22,
+                gender: '女',
+                salary: '1200',
+                city: '北京',
+                time: '2009/9/9 09:09:09'
+            }
+        ]
+        // localStorage.setItem('data', JSON.stringify(initData))
+        //1.渲染业务
+        //1.1先读取本地存储的数据
+        //(1).本地存储数据记得转换为对象然后存储到变量里面,后期用于渲染页面 
+        //(2).如果没有数据,则用空数组代替
+        const arr = JSON.parse(localStorage.getItem('data')) || []
+        console.log(arr)
+        //1.2利用map和jpin方法遍历数组,返回对应tr数组
+        const tbody = document.querySelector('tbody')
+        function render() {
+            //(1)利用map遍历数组,返回对应tr的数组
+
+            const trArr = arr.map(function (ele, index) {
+                return `
+                <tr>
+                <td>${ele.stuId}</td>
+                <td>${ele.uname}</td>
+                <td>${ele.age}</td>
+                <td>${ele.gender}</td>
+                <td>${ele.salary}</td>
+                <td>${ele.city}</td>
+                <td>${ele.time}</td>
+                <td>
+                    <a href="javascript:" data-id="${index}">
+                        <i class="iconfont icon-shanchu"></i>
+                        删除
+                    </a>
+                </td>
+            </tr>`
+            })
+            console.log(trArr)
+
+            //(2)把数组转化成字符串join
+            //(3)把生成的字符串追加给tbody
+            tbody.innerHTML = trArr.join('')
+            //显示一共有几条数据 盒子获取过来,把数组长度给它
+            document.querySelector('.title span').innerHTML = arr.length
+        }
+        render()
+        //2.新增业务
+
+        const info = document.querySelector('.info')
+        const uname = document.querySelector('.uname')
+        const age = document.querySelector('.age')
+        const salary = document.querySelector('.salary')
+        const gender = document.querySelector('.gender')
+        const city = document.querySelector('.city')
+        //2.1 form表单注册提交实践,阻止默认行为
+        info.addEventListener('submit', function (e) {
+            e.preventDefault()
+            //2.2非空判断
+            if (!uname.value || !age.value || !salary.value) {
+                return alert('输入内容不能为空')
+            }
+            //2.3给arr数组追加对象,里面存储 表单获取过来的数据
+            arr.push({
+                //处理stuId,数组最后一条数据的stuId+1
+                stuId: arr.length ? arr[arr.length - 1].stuId + 1 : 1,
+                uname: uname.value,
+                age: age.value,
+                gender: gender.value,
+                salary: salary.value,
+                city: city.value,
+                time: new Date().toLocaleString()
+            })
+            //2.4渲染页面和重置表单(reset()方法)
+            render()
+            this.reset()
+
+            //2.5把数组重新存入本地存储里面,转换为JSON字符串
+            localStorage.setItem('data', JSON.stringify(arr))
+        })
+
+
+        //3.删除操作
+        //3.1事件委托 给tbody注册点击事件
+        tbody.addEventListener('click', function (e) {
+            //判断是否点击的是删除按钮A链接 a标签要大写=A
+            if (e.target.tagName === 'A') {
+                // alert(11)
+                //得到当前元素的自定义属性
+                console.log(e.target.dataset.id)
+                //删除arr数组里面对应的数据
+
+                //确认删除
+                if (confirm('您确定删除吗?')) {
+                    arr.splice(e.target.dataset.id, 1)//数量
+                    //console.log(arr)
+                    //重新渲染一次
+                    render()
+                    //把最新arr数组存入本地存储
+                    localStorage.setItem('data', JSON.stringify(arr))
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
