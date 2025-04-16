@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+        <p>不要变色的</p>
+    </ul>
+    <script>
+        //点击每个小li 当前li 文字变成红色,p不变色
+        //委托给父亲 冒泡
+        const ul = document.querySelector('ul')//获取父元素
+        ul.addEventListener('click', function (e) {
+            //alert(11)
+            //console.log(e.target)//e是事件对象,就是点击的对象
+            //e.target.style.color = 'red'
+            //tagName是大写的,比如P
+            if (e.target.tagName === 'LI') {
+                e.target.style.color = 'red'
+            }
+        })
+    </script>
+</body>
+
+</html>

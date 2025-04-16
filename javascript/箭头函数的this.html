@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //以前this的指向:谁调用,this指向谁
+        console.log(this)//window
+        //普通函数
+        function fn() {
+            console.log(this)//window
+        }
+        window.fn()
+        const obj = {
+            name: 'andy',
+            sayHi: function () {
+                console.log(this)//obj
+            }
+        }
+        obj.sayHi()
+
+        //2.箭头函数的this
+        const fn = () => {
+            console.log(this)//window指向上一层的作用域的this
+        }
+        fn()
+        //对象方法的箭头函数的this
+
+        const obj1 = {
+            uname: 'andy',
+            sayHi: () => {
+                console.log(this)//this指向window
+            }
+        }
+        obj.sayHi()
+    </script>
+</body>
+
+</html>
