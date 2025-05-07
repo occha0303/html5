@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //深拷贝的三种方式:1.通过递归实现2.lodash/cloneDeep3.JSON.stringify()
+        let i = 1
+        function fn() {
+            console.log(`这是第${i}次`)
+            if (i >= 5) {
+                return
+            }
+            i++
+            fn()
+        }
+        fn()//递归容易栈溢出,必须加return
+    </script>
+</body>
+
+</html>

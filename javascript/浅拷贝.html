@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            uname: 'pink',
+            age: 18,
+            family: {
+                baby: '小pink'
+            }
+        }
+        //浅拷贝
+        //const o = { ...obj }
+        //console.log(o)
+        //o.age = 20
+        //console.log(o)
+        //console.log(obj)
+        const o = {}
+        Object.assign(o, obj)
+        o.age = 20
+        o.family.baby = '老pink'
+        console.log(o)
+        console.log(obj)
+        //浅拷贝是拷贝外面那层
+        //直接赋值,赋值地址,影响原对象
+        //浅拷贝:拷贝后里面的 属性值是简单数据类型就直接拷贝值
+        //如果属性值是引用数据类型则拷贝的是地址
+    </script>
+</body>
+
+</html>
