@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 300px;
+            width: 300px;
+            background-color: pink;
+            text-align: center;
+            font-style: italic;
+            font-size: 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box"></div>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script>
+        //节流,鼠标在盒子上移动,里面的数字会变化
+        const box = document.querySelector('.box')
+        let i = 1
+        function mouseMove() {
+            box.innerHTML = i++
+            //
+        }
+        //添加事件
+        //box.addEventListener('mousemove', mouseMove)
+        box.addEventListener('mousemove', _.throttle(mouseMove, 500))
+        //一旦开始,500毫秒之内,事件禁用,,约束
+    </script>
+</body>
+
+</html>

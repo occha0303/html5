@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 300px;
+            width: 300px;
+            background-color: pink;
+            text-align: center;
+            font-style: italic;
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box"></div>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script>
+        //需求:鼠标在盒子上移动停止后,里面数字会+1
+        const box = document.querySelector('.box')
+        let i = 1
+        function mouseMove() {
+            box.innerHTML = i++
+            //
+        }
+        //添加事件
+        //box.addEventListener('mousemove', mouseMove)
+        box.addEventListener('mousemove', _.debounce(mouseMove, 500))
+    </script>
+</body>
+
+</html>
